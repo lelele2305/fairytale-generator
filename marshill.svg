@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="EInfärben" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f9b233;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #fac080;
+        opacity: .18;
+      }
+
+      .cls-3 {
+        fill: #fcc25e;
+      }
+    </style>
+  </defs>
+  <g id="Einfärben-2" data-name="Einfärben">
+    <g>
+      <rect class="cls-3" x="6" y="15" width="1" height="1"/>
+      <rect class="cls-1" x="6" y="17" width="1" height="1"/>
+      <rect class="cls-1" x="6" y="16" width="1" height="1"/>
+      <rect class="cls-3" x="5" y="16" width="1" height="1"/>
+      <rect class="cls-1" x="4" y="19" width="1" height="1"/>
+      <rect class="cls-1" x="5" y="19" width="1" height="1"/>
+      <rect class="cls-1" x="5" y="18" width="1" height="1"/>
+      <rect class="cls-1" x="5" y="17" width="1" height="1"/>
+      <rect class="cls-1" x="4" y="18" width="1" height="1"/>
+      <rect class="cls-3" x="4" y="17" width="1" height="1"/>
+      <rect class="cls-1" x="3" y="19" width="1" height="1"/>
+      <rect class="cls-1" x="12" y="19" width="1" height="1"/>
+      <rect class="cls-1" x="11" y="19" width="1" height="1"/>
+      <rect class="cls-1" x="11" y="18" width="1" height="1"/>
+      <rect class="cls-3" x="10" y="16" width="1" height="1"/>
+      <rect class="cls-1" x="10" y="18" width="1" height="1"/>
+      <rect class="cls-1" x="9" y="16" width="1" height="1"/>
+      <rect class="cls-1" x="8" y="18" width="1" height="1"/>
+      <rect class="cls-1" x="10" y="19" width="1" height="1"/>
+      <rect class="cls-1" x="8" y="19" width="1" height="1"/>
+      <rect class="cls-3" x="11" y="17" width="1" height="1"/>
+      <rect class="cls-1" x="9" y="17" width="1" height="1"/>
+      <rect class="cls-3" x="9" y="15" width="1" height="1"/>
+      <rect class="cls-1" x="9" y="18" width="1" height="1"/>
+      <rect class="cls-1" x="9" y="19" width="1" height="1"/>
+      <rect class="cls-1" x="10" y="17" width="1" height="1"/>
+      <rect class="cls-1" x="6" y="18" width="1" height="1"/>
+      <rect class="cls-1" x="8" y="16" width="1" height="1"/>
+      <rect class="cls-3" x="8" y="15" width="1" height="1"/>
+      <rect class="cls-1" x="7" y="18" width="1" height="1"/>
+      <rect class="cls-1" x="7" y="17" width="1" height="1"/>
+      <rect class="cls-1" x="7" y="19" width="1" height="1"/>
+      <rect class="cls-3" x="7" y="15" width="1" height="1"/>
+      <rect class="cls-1" x="6" y="19" width="1" height="1"/>
+      <rect class="cls-1" x="7" y="16" width="1" height="1"/>
+      <rect class="cls-1" x="8" y="17" width="1" height="1"/>
+    </g>
+  </g>
+  <g>
+    <path class="cls-2" d="M31.38,15.95c.7,0-.51-1.97-.96-1.97-.7,0,.51,1.97.96,1.97Z"/>
+    <path class="cls-2" d="M30.32,14.76c.64,0,.22-1.12-.17-1.12-.64,0-.22,1.12.17,1.12Z"/>
+    <path class="cls-2" d="M30.63,14.21c.15,0,.27-.61.24-.61-.15,0-.27.61-.24.61Z"/>
+    <path class="cls-2" d="M31.04,14.67c.57,0-.67-1.33-1.14-1.33-.57,0,.67,1.33,1.14,1.33Z"/>
+    <path class="cls-2" d="M31.05,14.06c.3,0,.38-.65.08-.65s-.38.65-.08.65Z"/>
+    <path class="cls-2" d="M29.95,14.69c.11,0,.73-.23.48-.23-.11,0-.73.23-.48.23Z"/>
+    <path class="cls-2" d="M31.86,14.55c.3,0,.27-.32.18-.49-.13-.25-.89-.41-1.15-.41-.3,0-.27.32-.18.49.13.25.89.41,1.15.41Z"/>
+  </g>
+</svg>

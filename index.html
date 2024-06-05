@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zufällige Landschaften</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="module">
+        import ollama from "https://esm.sh/ollama/browser";
+        window.ollama = ollama;
+        console.log("Yes ollama is there");
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>The Fairytail Generator</h1>
+</header>
+
+<div id="landschaft-container"></div>
+<div id="target"></div>
+
+<div class="bild">
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const landschaften = [
+            // Landscape with a flowerfield
+            [
+                `<div class="landschaft">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                </div>
+                <div class="landschaft">
+                    <img src="./poppy.svg">
+                    <img src="./cornflower.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./poppy.svg">
+                    <img src="./space.svg">
+                    <img src="./poppy.svg">
+                    <img src="./cornflower.svg">
+                    <img src="./poppy.svg">
+                </div>
+                <div class="landschaft">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                </div>`
+            ],
+            // Landscape with a flowerfield
+            [
+               `<div class="landschaft">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                </div>
+                <div class="landschaft">
+                   <img src="./peony.svg">
+                   <img src="./cornflower.svg">
+                   <img src="./space.svg">
+                   <img src="./space.svg">
+                   <img src="./peony.svg">
+                   <img src="./space.svg">
+                   <img src="./cornflower.svg">
+                   <img src="./cornflower.svg">
+                   <img src="./peony.svg">
+                   <img src="./peony.svg">
+                   <img src="./space.svg">
+                   <img src="./cornflower.svg">
+                </div>
+                <div class="landschaft">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+                   <img src="./grass.svg">
+               </div>`
+               ],
+               // Landscape with a sea and flowers
+               [
+               `<div class="landschaft">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                   <img src="./sky.svg">
+                </div>
+                <div class="landschaft">
+                    <img src="./poppy.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./poppy.svg">
+                </div>
+                <div class="landschaft">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                </div>`
+                ],
+                // Landscape with sea and flowers
+                [
+                `<div class="landschaft">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                    <img src="./sky.svg">
+                </div>
+                <div class="landschaft">
+                    <img src="./space.svg">
+                    <img src="./cornflower.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./duck.svg">
+                    <img src="./poppy.svg">
+                    <img src="./cornflower.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./poppy.svg">
+                    <img src="./peony.svg">
+                </div>
+                <div class="landschaft">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                    <img src="./water.svg">
+                    <img src="./water.svg">
+                    <img src="./grass.svg">
+                    <img src="./grass.svg">
+                </div>`
+                ],
+                // Landscape on the mars
+                [
+                `<div class="landschaft">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./planet.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                </div>
+                <div class="landschaft">
+                    <img src="./marsflower.svg">
+                    <img src="./space.svg">
+                    <img src="./marsflower.svg">
+                    <img src="./marsflower.svg">
+                </div>
+                <div class="landschaft">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                </div>`
+            ],
+            // Landscape on the mars
+            [
+            `<div class="landschaft">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./planet.svg">
+                    <img src="./atmosphere.svg">
+                    <img src="./atmosphere.svg">
+            </div>
+            <div class="landschaft">
+                    <img src="./marshill.svg">
+                    <img src="./space.svg">
+                    <img src="./marshill.svg">
+                    <img src="./marsmountain.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./alien.svg">
+                    <img src="./marsmountain.svg">
+                    <img src="./marsmountain.svg">
+            </div>
+            <div class="landschaft">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+                    <img src="./soil.svg">
+            </div>`
+            ],
+            // Landscape in the desert
+            [
+            `<div class="landschaft">
+                    <img src="./sun.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+            </div>
+            <div class="landschaft">
+                    <img src="./cactus.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./scrub.svg">
+                    <img src="./flowercactus.svg">
+                    <img src="./scrub.svg">
+                    <img src="./space.svg">
+                    <img src="./space.svg">
+                    <img src="./cactus.svg">
+            </div>
+            <div class="landschaft">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                    <img src="./desert.svg">
+                </div>`
+                 ],
+                 // Landscape in the desert
+                 [
+                 `<div class="landschaft">
+                     <img src="./space.svg">
+                     <img src="./space.svg">
+                     <img src="./sun.svg">
+                 </div>
+                 <div class="landschaft">
+                      <img src="./cactus.svg">
+                      <img src="./space.svg">
+                      <img src="./scrub.svg">
+                      <img src="./space.svg">
+                      <img src="./space.svg">
+                      <img src="./flowercactus.svg">
+                      <img src="./scrub.svg">
+                      <img src="./space.svg">
+                      <img src="./space.svg">
+                      <img src="./cactus.svg">
+                 </div>
+                 <div class="landschaft">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                      <img src="./desert.svg">
+                 </div>`
+                 ],
+                 // Landscape at night  
+                 [
+                `<div class="landschaft">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./moon.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                       <img src="./nightsky.svg">
+                </div>
+                <div class="landschaft">
+                       <img src="./mountains.svg">
+                       <img src="./space.svg">
+                       <img src="./scrub.svg">
+                       <img src="./space.svg">
+                       <img src="./space.svg">
+                       <img src="./hill.svg">
+                       <img src="./scrub.svg">
+                       <img src="./space.svg">
+                       <img src="./space.svg">
+                       <img src="./mountains.svg">
+                </div>
+                <div class="landschaft">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                       <img src="./rock.svg">
+                </div>`
+                ],
+                // Landscape at  night
+                [
+                `<div class="landschaft">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./moon.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                        <img src="./nightsky.svg">
+                 </div>
+                 <div class="landschaft">
+                        <img src="./mountains.svg">
+                        <img src="./space.svg">
+                        <img src="./hill.svg">
+                        <img src="./space.svg">
+                        <img src="./space.svg">
+                        <img src="./space.svg">
+                        <img src="./hill.svg">
+                        <img src="./mountains.svg">
+                        <img src="./scrub.svg">
+                        <img src="./space.svg">
+                        <img src="./mountains.svg">
+                 </div>
+                 <div class="landschaft">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                        <img src="./rock.svg">
+                 </div>`
+            ],
+        ];
+
+        const randomIndex = Math.floor(Math.random() * landschaften.length);
+        const selectedLandschaft = landschaften[randomIndex];
+        const container = document.getElementById("landschaft-container");
+        container.innerHTML = selectedLandschaft;
+
+        // Ensure ollama is available
+        if (window.ollama) {
+            console.log("Ollama is available");
+
+            // Call Ollama API here after the landscape is rendered
+            window.ollama.chat({
+                model: 'llama3',
+                stream: false,
+                messages: [
+                    {
+                        role: 'system',
+                        content: `Write a short story about 10 sentences about the generated landscape that is seen in the browser based on the last comment before the generated landscape.`,
+                    },
+                    {
+                        role: 'user',
+                        content: `Describe this landscape in a short fairy tale: ${selectedLandschaft}`,
+                    }
+                ],
+            })
+            .then((response) => {
+                console.log(response);
+                const html = response.message.content;
+                document.getElementById("target").innerHTML = html;
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        } else {
+            console.error("Ollama is not available");
+        }
+    });
+</script> 
+</div>
+
+<div class="ollamatext">
+</div>
+
+<div class="druck">
+  <button class="button" onclick="location.reload();">New Fairytail</button>
+</div>
+
+
+<footer>
+  <p>
+    © Katja Müller und Leonie Manthey 2024 The Fairytail Generator     
+  <a href="impressum.html">
+    Impressum
+  </a>
+</p>
+</footer>
+
+</body>
+</html>
